@@ -1,40 +1,51 @@
 <!DOCTYPE html>
 <html>
-    
-    <nav>
-            <a href="Code GSST.html">GSST</a>
-            <a href="/Data-Infrastructure_Meeting_20230516.html">DATA</a>
-            <a href="Contacts.html">Contacts</a>
-        </nav>
-    
-    
 <head>
     <title>CIMMYT Locations</title>
+    <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap' async defer></script>
+    <script type='text/javascript'>
+        function GetMap() {
+            var map = new Microsoft.Maps.Map('#myMap', {
+                credentials: 'AnnBvbObIrEvX-xnbDRFdLyxOJ6jP9WyMxn1Hs2s8wBvC9W4jFNVUKADjXx5Es-R',
+                center: new Microsoft.Maps.Location(19.5046, -98.8825),
+                zoom: 10
+            });
+            var center = map.getCenter();
+            var pin = new Microsoft.Maps.Pushpin(center, null);
+            map.entities.push(pin);
+        }
+    </script>
     <style>
-        #map {
-            height: 400px;
+        #myMap {
+            position: relative;
             width: 100%;
+            height: 400px;
         }
     </style>
 </head>
 <body>
     <h1>CIMMYT Locations</h1>
-    <div id="map"></div>
-    <script>
-        function initMap() {
-            var headquarters = {lat: 19.5046, lng: -98.8825};
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 4,
-                center: headquarters
-            });
-            var marker = new google.maps.Marker({
-                position: headquarters,
-                map: map
-            });
-        }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AnnBvbObIrEvX-xnbDRFdLyxOJ6jP9WyMxn1Hs2s8wBvC9W4jFNVUKADjXx5Es-R&callback=initMap">
-    </script>
+    <div id="myMap"></div>
+    <h2>Addresses</h2>
+    <p>
+        <strong>Global Headquarters:</strong><br>
+        Location: Carretera México-Veracruz, Km. 45, El Batán, 56237 Texcoco, MÉXICO<br>
+        Postal Address: Apartado Postal 041, C.A.P. Plaza Galerías, Col. Verónica Anzures, 11305 Ciudad de México, MÉXICO<br>
+        U.S. Forwarding Address (For letters and documents): CIMMYT, P.O. Box 60326, Houston TX 77205-0326, USA<br>
+        U.S. Forwarding Address (For packages): CIMMYT, Greenlite Express Inc., Suite #160, 15355 W. Vantage Parkway, Houston, Texas 77032, USA<br>
+    </p>
+    <p>
+        <strong>Country Offices:</strong><br>
+        Bangladesh Office<br>
+        China Office<br>
+        Colombia Office<br>
+        Ethiopia Office<br>
+        India Office<br>
+        Kenya Office<br>
+        Nepal Office<br>
+        Pakistan Office<br>
+        Turkey Office<br>
+        Zimbabwe Office<br>
+    </p>
 </body>
 </html>
